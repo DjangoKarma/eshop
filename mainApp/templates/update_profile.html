@@ -1,0 +1,71 @@
+{% extends 'index.html' %}
+
+{% block title %}
+<title>Eshop | Update Profile Section</title> 
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid mt-3">
+    <div class="row my-3">
+        <div class="col-md-2 col-1"></div>
+        <div class="col-md-8 col-10">
+            <h5 class="background text-light text-center p-2">Update Profile Section</h5>
+            <form method="post" action="#" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="row mb-3">
+                    <div class="col-md-6 col-12">
+                        <label class="form-label">Full Name</label>
+                        <input type="text" class="form-control" name="name" placeholder="Enter your Full Name" value="{{user.name}}">
+                    </div>
+                    <div class="col-md-6 col-12">
+                        <label class="form-label">Profile Pic</label>
+                        <input type="file" class="form-control" name="pic" value="{{user.pic}}">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-6 col-12">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-control" name="email" placeholder="Enter your Email" value="{{user.email}}">
+                    </div>
+                    <div class="col-md-6 col-12">
+                        <label class="form-label">Mobile Number</label>
+                        <input type="text" class="form-control" name="phone" placeholder="Enter your Mobile Number" value="{{user.phone}}">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-6 col-12">
+                        <label class="form-label">House or Building Number</label>
+                        <input type="text" class="form-control" name="address1" placeholder="Enter your House or Building Number" value="{{user.address1}}">
+                    </div>
+                    <div class="col-md-6 col-12">
+                        <label class="form-label">Street Number or Nearby</label>
+                        <input type="text" class="form-control" name="address2" placeholder="Enter your Street Number or Nearby" value="{{user.address2}}">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-6 col-12">
+                        <label class="form-label">Village or Locality</label>
+                        <input type="text" class="form-control" name="address3" placeholder="Enter your Village or Locality" value="{{user.address3}}">
+                    </div>
+                    <div class="col-md-6 col-12">
+                        <label class="form-label">Pincode</label>
+                        <input type="text" class="form-control" name="pin" placeholder="Enter your Pincode" value="{{user.pin}}">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-6 col-12">
+                        <label class="form-label">City</label>
+                        <input type="text" class="form-control" name="city" placeholder="Enter your City" value="{{user.city}}">
+                    </div>
+                    <div class="col-md-6 col-12">
+                        <label class="form-label">State</label>
+                        <input type="text" class="form-control" name="state" placeholder="Enter your State" value="{{user.state}}">
+                    </div>
+                </div>
+                <button type="submit" class="btn background text-light w-100 btn-sm mybtn">Update</button>
+            </form>
+        </div>
+        <div class="col-md-2 col-1"></div>
+    </div>
+</div>
+{% endblock %}
