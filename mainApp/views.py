@@ -289,7 +289,6 @@ def orderPage(Request):
                 orderCurrency = "INR"
                 paymentOrder = client.order.create(dict(amount = orderAmount,currency=orderCurrency,payment_capture=1))
                 paymentId = paymentOrder['id']
-                check.mode = "Netbanking"
                 check.save()
                 return render(Request,"pay.html",{
                     'amount':orderAmount,
@@ -303,9 +302,10 @@ def orderPage(Request):
 @login_required(login_url="/login/")
 def paymentSuccess(Request,rppid):
     buyer = Buyer.objects.get(username=Request.user)
-    check = Checkout.objects.filter(buyer=buyer)
+    check = Checkout.objects.filter(user=buyer)
     check = check[::-1]
     check = check[0]
+    check.paymentmode = "Netbanking"
     check.rppid = rppid
     check.paymentstatus = 1
     check.save()
